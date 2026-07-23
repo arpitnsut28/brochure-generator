@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brochure Generator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
+</head>
+<body>
+  <div class="container">
+
+    <header class="masthead">
+      <div>
+        <div class="eyebrow">Automated Brochure Press</div>
+        <h1>The Company Brief</h1>
+      </div>
+      <div class="issue">No. 001 &middot; Printed on demand</div>
+    </header>
+
+    <div class="press-card">
+      <div class="field">
+        <label for="companyName">Company name</label>
+        <input id="companyName" type="text" placeholder="e.g. Hugging Face" />
+      </div>
+      <div class="field">
+        <label for="companyUrl">Company website</label>
+        <input id="companyUrl" type="text" placeholder="https://example.com" />
+      </div>
+      <button class="run" id="runBtn" onclick="generateBrochure()">Run the press</button>
+
+      <div class="loading" id="loading">
+        <div class="press-bar"></div>
+        <span>Scraping site, drafting copy&hellip;</span>
+      </div>
+
+      <div class="error-msg" id="errorMsg"></div>
+    </div>
+
+    <div class="output-wrap" id="outputWrap">
+      <div class="fold-label">Fresh off the press</div>
+      <div class="brochure" id="brochureOutput"></div>
+    </div>
+
+    <footer class="colophon">
+      Generated with Gemini &middot; scraped directly from the company's own site
+    </footer>
+
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
